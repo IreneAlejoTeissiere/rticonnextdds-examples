@@ -1,0 +1,31 @@
+<domain_route name="MyOnRuntimeRoute">
+            
+    <participant name="domainA">
+       <domain_id>1</domain_id>
+    </participant>
+
+    <participant name="domainB">
+       <domain_id>3</domain_id>
+    </participant>
+
+    <session name="Session">
+        <topic_route name="DomainAtoDomainB">
+            <route_types>true</route_types>
+            <publish_with_original_info>true</publish_with_original_info>
+            <input participant="domainA">
+                <registered_type_name>
+                    ShapeType
+                </registered_type_name>
+                <topic_name>Square</topic_name>
+            </input>
+
+            <output participant="domainB">
+                <registered_type_name>
+                    ShapeType
+                </registered_type_name>
+                <topic_name>Triangle</topic_name>
+            </output>
+
+        </topic_route>
+    </session>
+</domain_route>
