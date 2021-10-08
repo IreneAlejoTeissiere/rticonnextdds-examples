@@ -38,14 +38,13 @@ private:
     std::string resource_id_;
     std::string body_str_;
 
-    void print_usage(const std::string& program_name);
+    void print_usage(const std::string &program_name);
 
     void report_argument_error(
-            const std::string& program_name,
-            const std::string& tag,
-            const std::string& error);
+            const std::string &program_name,
+            const std::string &tag,
+            const std::string &error);
 
     static RTI::Service::Admin::CommandActionKind parse_command_kind(char *arg);
     static std::string parse_file_to_str(char *arg);
 };
-

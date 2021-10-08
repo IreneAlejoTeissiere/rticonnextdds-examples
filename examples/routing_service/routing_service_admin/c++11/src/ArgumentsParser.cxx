@@ -47,8 +47,9 @@ CommandActionKind ArgumentsParser::parse_command_kind(char *arg)
 std::string ArgumentsParser::parse_file_to_str(char *arg)
 {
     std::ifstream t(arg);
-    std::string str((std::istreambuf_iterator<char>(t)),
-    std::istreambuf_iterator<char>());
+    std::string str(
+            (std::istreambuf_iterator<char>(t)),
+            std::istreambuf_iterator<char>());
 
     return str;
 }
@@ -56,10 +57,8 @@ std::string ArgumentsParser::parse_file_to_str(char *arg)
 void ArgumentsParser::print_usage(const std::string &program_name)
 {
     std::cout << "Usage:" << std::endl;
-    std::cout
-            << "    " << program_name
-            << " <COMMAND_KIND> <RESOURCE_ID> <FILE_NAME> "
-            << std::endl;
+    std::cout << "    " << program_name
+              << " <COMMAND_KIND> <RESOURCE_ID> <FILE_NAME> " << std::endl;
     std::cout << "    Where:" << std::endl;
     std::cout << "        COMMAND_KIND   = {CREATE|GET|UPDATE|DELETE}; required"
               << std::endl;
@@ -72,14 +71,15 @@ void ArgumentsParser::print_usage(const std::string &program_name)
             << "                         command action should be applied to; "
             << std::endl
             << "                         required" << std::endl;
-    std::cout << "        FILE_NAME = file name where the body (xml) is written "
-              << std::endl
-              << "                         command action, e.g. 'pause'; "
-                 "optional "
-              << std::endl
-              << "                         (some command kinds need no "
-                 "parameters)"
-              << std::endl;
+    std::cout
+            << "        FILE_NAME = file name where the body (xml) is written "
+            << std::endl
+            << "                         command action, e.g. 'pause'; "
+               "optional "
+            << std::endl
+            << "                         (some command kinds need no "
+               "parameters)"
+            << std::endl;
 }
 
 void ArgumentsParser::report_argument_error(
@@ -95,7 +95,6 @@ void ArgumentsParser::report_argument_error(
 
 ArgumentsParser::ArgumentsParser(int argc, char *argv[])
 {
-    
     int current_arg = 0;
     // Parse mandatory arguments, we at least need 4 (includes program name)
     if (argc < 3) {
@@ -108,9 +107,8 @@ ArgumentsParser::ArgumentsParser(int argc, char *argv[])
     resource_id_ = argv[2];
     // The following code requires more arguments than just the required ones
     if (argc > 3) {
-        //Next argument
+        // Next argument
         body_str_ = argv[3];
-        
     }
 }
 
@@ -132,4 +130,3 @@ const std::string &ArgumentsParser::body_str() const
 {
     return body_str_;
 }
-
